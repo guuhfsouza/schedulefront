@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: "http://gustavoapi.gear.host/api"//process.env.REACT_APP_APISERVICE_URL
+    baseURL: "https://gustavoapi.gear.host/api"//process.env.REACT_APP_APISERVICE_URL
 });
 
 

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#f5f7f8));
+    font-family: 'Roboto', Arial;
+}
+
+button{
+    background: -webkit-gradient(linear, left top, right top, from(#c40505), to(#110000));
+    box-shadow: -4px -4px 5px rgba(0, 0, 0, 0.30);
+    font-size: 15px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+button:hover{
+    transform: translateX(2px) translateY(-2px);   
+    transition: all 0.2s
+}

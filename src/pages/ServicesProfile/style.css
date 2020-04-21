@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    margin-bottom: 0;
+}
+.services-container{
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+}
+
+.services-content{
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 20px;
+}
+
+.services-content section{  
+    padding: 1%;
+    background: transparent;
+    margin-bottom: 2%;
+    width: 30%;
+    /* max-width: auto;
+    min-width: auto; */
+}
+.services-content section + section{
+    width: 65%;
+}
+
+.services-content section form{
+    display: grid;
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.30); 
+    padding: 12px;
+    font-size: 16px;
+}
+
+.services-content .service-list{
+    display: grid;
+    border: none;
+    font-size: 16px;
+}
+
+.service-list ul{
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2%;
+    background: transparent;
+    padding: 0 1%;
+    margin-top: 0;
+  }
+
+.service-list ul li{
+    display: grid;
+    list-style: none;
+    grid-gap: 6px;
+    border: none ;
+    border-radius: 8px;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.20); 
+    background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#f7f4f4f6));
+    padding: 3%;
+    
+    font-weight: 600;
+    font-size: 12.03pt;
+}
+
+.service-list ul li .service-list-controls{
+    display: flex;
+    margin-left: auto ;
+    align-items: center;
+    background: transparent;
+}
+.service-list ul li .service-list-controls svg{
+    margin: 4%;
+    padding: 2%;
+    background: transparent;
+}
+
+.service-list ul li .service-list-controls svg:hover{
+    transform: translateX(3px) translateY(-3px);
+}
+
+.service-list ul li span{
+    width: auto;
+    background: transparent;
+    margin-top: 0;
+}
+.service-list ul li span + span + span{
+    margin-bottom: 4%;
+}
+
+.services-content section form{
+    align-items: center;
+}
+
+.services-content section form .services-data{
+    display: grid;
+    grid-gap: 24px;
+    background: transparent;
+}
+
+.services-content section form span{
+    outline: none;
+    width: auto;
+    padding: 3%;
+    margin: auto 3%;
+    background: transparent;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.services-content section form .services-data input{
+    outline: none;
+    width: auto;
+    padding: 3%;
+    margin: auto 3%;
+    border-radius: 8px;
+    border: none;
+    border-bottom: 1px solid;
+    background: transparent;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.services-content section form button{
+    outline: none;
+    width: auto;
+    padding: 3%;
+    margin: 5% 3% 3% 3%;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+
+@media (max-width: 425px){
+    .services-content{
+        display: grid;
+        justify-content: space-between;
+        grid-gap: 20px;
+    }
+
+    .services-content section{
+        width: auto;
+    }
+    .services-content section + section{
+        width: auto;
+    }
+}

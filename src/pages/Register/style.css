@@ -1,0 +1,83 @@
+.register-container{
+    width: 100%;
+    max-width: 100%;
+    margin:0;
+    display: grid;
+}
+
+.register-content{
+    padding: 2% 2px 2% 2px ;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.register-content form{
+    width: auto;
+    min-width: 45%;
+    margin-top: 1%;
+    padding: 1%;
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.30); 
+    display: grid;
+    justify-content: center;
+ 
+}
+
+.register-content form span{
+    font-weight: bold;
+    margin: 8% 4px 4px 4px ;
+    background: transparent;
+    width: auto;
+}
+
+.register-content form input + span{
+    margin-top: 8px ;
+}
+
+.register-content form input{
+    margin: 4px 0 8px 0;
+    width: auto;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.795);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.795);
+    background: transparent;
+}
+
+.register-content form .register-local{
+    /* padding: 0 8px 0 0; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+}
+
+.register-content form .register-local span, div + span{
+    margin-top: 10px;
+    width: 50%;
+}
+
+.register-content form .register-local input{
+    width: 45%;
+}
+
+.button{
+    margin: 10% 0 10% 0;
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media(max-width: 425px){
+    .register-content form{
+        width: 70%;     
+    }
+    
+}

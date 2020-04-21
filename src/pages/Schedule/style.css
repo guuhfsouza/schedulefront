@@ -1,0 +1,171 @@
+.schedule-container{
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+}
+
+.schedule-content{
+    padding: 12px 12px;
+}
+
+.schedule-content header {
+    padding: 2%;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+    
+    margin: 1%;
+    display: grid;
+    text-align: left;
+    /*border: none;
+    border-radius: 8px;
+    box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+    background: #ffffff;
+    padding: 10px ; */
+}
+
+.schedule-content header span{    
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 3%;
+    background: transparent;
+}
+
+.schedule-content header span + span{    
+    margin-top: 0%;
+}
+
+.schedule-dates {
+    margin: 0 ;
+    padding: 10px;
+    border: none;
+}
+
+.schedule-dates ul{
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+}   
+
+.schedule-dates li{
+    width: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(#c40505), to(#110000)); 
+    border-radius: 8px;
+}
+
+.schedule-dates li:hover{
+    transform: translateX(3px) translateY(-3px);   
+    transition: all 0.2s
+}
+
+.schedule-dates ul li form{
+    background: #ffffff;
+}
+
+.schedule-dates ul li .header-list{
+    width: 100%;
+    max-width: 100%;
+    margin: 4px 0;
+    text-align: center;
+    align-items: center;
+    background: transparent;
+}
+
+.schedule-dates ul li .header-list span{
+    padding: 2px 12px;
+    background: transparent;
+    color: #ffffff;
+    margin: 0;
+}
+
+.schedule-dates ul li form{
+    margin: 3px 2px ;
+    border-radius: 4px;
+    display: grid;
+    align-items: center ;
+    justify-content: left;
+    padding: 5px 10px;
+}
+
+.schedule-dates li form strong{
+    margin-top: 8px;
+    padding: 0 10px;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    background: none;
+}
+
+.schedule-dates li form p{
+    margin-top: 0;
+    padding: 8px ;
+    font-weight: 600;
+    border: none;
+    background: none;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.795);
+}
+
+.schedule-dates ul li form .button-list{
+    width: 100%;
+    margin: 10px 0 ;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: left;
+    font-size: 17px;
+    background: transparent;
+    color:rgba(41, 6, 6, 0.795);
+    cursor: pointer;
+    
+}
+
+.schedule-dates ul li form .button-list:hover{
+     transform: translateY(-3px) translateX(3px);
+}
+
+.schedule-dates ul li form .button-list p{
+    font-size: 16px;
+    font-weight: bold;
+    background: transparent;
+}
+
+.schedule-dates ul li form .button-list p:hover{
+    color: #9e0707;
+}
+
+
+@media (max-width:425px) {
+
+    .schedule-dates ul{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 12px;
+        list-style: none;
+        padding: 2%;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+    }  
+    
+    .schedule-content header {
+        padding: 2%;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+        
+        margin: 0;
+        display: grid;
+        text-align: left;
+    }
+
+    .schedule-dates {
+         padding: 0;
+    }
+}

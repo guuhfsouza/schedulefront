@@ -135,7 +135,7 @@
 
 
   .modal input, select{
-    width: auto;
+    width: 100%;
     border: none;
     outline: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.795);

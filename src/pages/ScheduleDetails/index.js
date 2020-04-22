@@ -34,7 +34,8 @@ function ScheduleDetails() {
         }
 
         async function getServices(){
-            const response = await api.get('services', {
+            //const response = await apiservices.get(`Services/By-Service?cpfStore=${cpfStore}&service=${'""'}&status=S`);
+            const response = await api.get('/services-active', {
                 headers: {
                     authorization: cpfStore
                 }
@@ -93,7 +94,8 @@ function ScheduleDetails() {
                                 <span>Hora: {scheduleProfile.hour}</span>
                                 <span>Cliente: {scheduleProfile.client}</span>
                                 <span>Status: {scheduleProfile.status}</span>
-                                <span>Preço: {scheduleProfile.price}</span>
+                                <span>Preço: {Intl.NumberFormat('pt-BR', 
+                                        {style: 'currency', currency: 'BRL'}).format(scheduleProfile.price)}</span>
                                 <span>Cabel: {scheduleProfile.nameUser}</span>
                             </li>
                         )}
@@ -105,7 +107,7 @@ function ScheduleDetails() {
             <div id="div-Principal" >
                 <form id="abrirModal" onSubmit={handleSchedule} className="modal">
                     <a href="#fechar" id="Fechar" title="Fechar" className="fechar">x</a>
-                        <input placeholder="Cliente" value={client} onChange={e => setClient(e.target.value)}/>
+                        <input required={true} placeholder="Cliente" value={client} onChange={e => setClient(e.target.value)}/>
 
                         <select value={services.idService} onChange={e => setIdServ(e.target.value)}>
                             {services.map(service => {
@@ -117,7 +119,7 @@ function ScheduleDetails() {
                             )}
                         </select>
 
-                        <input type="time" placeholder="Hora" value={hour}
+                        <input required={true} type="time" placeholder="Hora" value={hour}
                         onChange={e => setHour(e.target.value)}/>
                         <button className='modal-button' type="submit" >Agendar</button>
                 </form>

@@ -7,6 +7,9 @@ import Main from '../Main';
 import '../../global.css';
 import './style.css';
 
+import Logo from '../../assets/logo.ico'
+
+
 function Schedule() {
     const user = localStorage.getItem('user')
     const [days, setDays] = useState([]);
@@ -43,8 +46,11 @@ function Schedule() {
             <Main/>
             <div className="schedule-content">
                 <header>
-                    <span>Olá {user}, seja bem vindo!</span>
-                    <span>Fique a vontade para agendar seus comprimissos. Aqui você poderá organizar melhor seus afazeres e otimizar seu tempo.</span>
+                    <img src={Logo} alt="Logo"/>
+                    <div className="header-text">
+                        <span>Olá {user}, seja bem vindo!</span>
+                        <span>Fique a vontade para agendar seus comprimissos. Aqui você poderá organizar melhor seus afazeres e otimizar seu tempo.</span>
+                    </div>
                 </header>
                 <div className="schedule-dates">
                     <ul>
@@ -65,7 +71,7 @@ function Schedule() {
                                 }} to="/schedule-details"  className="button-list"><p>Detalhes</p></Link>
                             </form>
                         </li>
-                        ))};
+                        ))}
                     </ul>
                 </div>
             </div>

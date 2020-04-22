@@ -49,24 +49,25 @@ function Register() {
                 };
                 
                 try{
-                    await api.post("users", dataUser);
+                    const response = await api.post("users", dataUser);
+                    
+                    if(response.status === 200){
+                        alert(response.data.sucess);                    
+                    }
+                    else if(response.status === 400){
+                        alert(response.data.alert)
+                    }
+                    else if((response.status === 500)){
+                        alert("Falha de conexão com a base de dados. Favor acionar o suporte.");
+                        console.warn(response.data.error);
+                    }
+        
+             
                 }
                 catch(err){
                     return alert(err);
                 }
             }
-            
-            if(response.status === 200){
-                alert(response.data.sucess);                    
-            }
-            else if(response.status === 400){
-                alert(response.data.alert)
-            }
-            else if((response.status === 500)){
-                alert("Falha de conexão com a base de dados. Favor acionar o suporte.");
-                console.warn(response.data.error);
-            }
-
             history.push('/');
         }
         
@@ -152,26 +153,26 @@ function Register() {
             <div className="register-content">
                 <form onSubmit={handleProfile}>
                     <span>Nome: </span>
-                    <input placeholder="Nome"
+                    <input required={true} placeholder="Nome"
                         value={name} onChange={e => setName(e.target.value)}/>
                     <span>E-mail: </span>
-                    <input  type="email" placeholder="E-mail"
+                    <input required={true}  type="email" placeholder="E-mail"
                         value={email} onChange={e => setEmail(e.target.value)}
                     />
                     <span>CPF: </span>
-                    <input minLength="11" maxLength="11" placeholder="CPF"
+                    <input required={true} minLength="11" maxLength="11" placeholder="CPF"
                         value={cpf} onChange={e => setCpf(e.target.value)}/>
                     <span>Cel: </span>
-                    <input minLength="10" maxLength="11" placeholder="Celular"
+                    <input required={true} minLength="10" maxLength="11" placeholder="Celular"
                     value={phone} onChange={e => setPhone(e.target.value)}/>
                     <div className="register-local">
                         <span>Cidade: </span>
                         <span>UF: </span>
                     </div>
                     <div className="register-local">
-                        <input type="text" placeholder="Cidade"
+                        <input required={true} type="text" placeholder="Cidade"
                             value={city} onChange={e => setCity(e.target.value)}/>
-                        <input type="text" placeholder="UF"
+                        <input required={true} type="text" maxLength="2" minLength="2" placeholder="UF"
                             value={uf} onChange={e => setUf(e.target.value)}/>
                     </div>
                     <button className="button" type="submit">Cadastrar</button>

@@ -17,13 +17,16 @@ function Services(){
     const [service1, setService1] = useState("");
     const [price, setPrice] = useState(0.00);
 
+    const [update, setUpdate] = useState(true);
+
     useEffect(() => {
         async function getServices(){
             const response = await apiservice.get(`Services?cpfStore=${cpfStore}`);
             setServices(response.data);
+            console.log(response.data)
         }
         getServices();
-    }, [services])  
+    }, [update])  
 
     async function handleService(){
 
@@ -44,12 +47,13 @@ function Services(){
             const data = {
                 idService, 
                 service1 : service1,
-                price : price,
+                price : price.replace(',','.'),
                 ative: status.ative,
                 cpfStore: status.cpfStore
             };
-             const response = await apiservice.put('services', data);
+            const response = await apiservice.put('services', data);
             setServices(services.filter(services => services.idService !== idService, ...response))
+            
         }
     }
     async function handleStatus(id)
@@ -71,7 +75,7 @@ function Services(){
                 cpfStore: status.cpfStore
             };
             const response = await apiservice.put('services', data);
-            setServices(services);
+            setUpdate(update === false ? true : false)
     }
 
     return(
@@ -109,7 +113,8 @@ function Services(){
                                             }/>
                                     </div>
                                     <span >Serviço: {services.service1}</span>
-                                    <span>Preço: {services.price}</span>
+                                    <span>Preço: {Intl.NumberFormat('pt-BR', 
+                                        {style: 'currency', currency: 'BRL'}).format(services.price)}</span>
                                     <span>Ativo: {services.ative}</span>
                                 </li>
                             )

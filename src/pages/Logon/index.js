@@ -39,13 +39,13 @@ function Login () {
             <section onSubmit={login} className="form">
                 <h1>Faça Login</h1>
                 <form >
-                    <input type='email' placeholder='E-mail'
+                    <input required={true} type='email' placeholder='E-mail'
                     value={user} onChange={e => setUser(e.target.value)}/>
-                    <input type='password' placeholder='Senha'
+                    <input required={true} type='password' placeholder='Senha'
                     value={pass} onChange={e => setPass(e.target.value)}/>
                     <button type="submit">Acessar</button>
                     <div className="link-container">
-                        <a href="/">Recuperar Senha</a>
+                        {/* <a href="/">Recuperar Senha</a> */}
                         <Link to='register'>Cadastrar</Link> 
                     </div>
                 </form>

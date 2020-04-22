@@ -16,7 +16,8 @@
     box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
     
     margin: 1%;
-    display: grid;
+    display: flex;
+    justify-content: space-between;
     text-align: left;
     /*border: none;
     border-radius: 8px;
@@ -25,9 +26,23 @@
     padding: 10px ; */
 }
 
+.schedule-content header img{
+    padding: 0 12px 0 24px;
+    max-height: 30vh;
+    background: transparent;
+}
+
+.schedule-content header .header-text{
+    display: grid;
+    background: transparent;
+    align-items: flex-end;
+    width: auto;
+    margin-bottom: 5%;
+}
+
 .schedule-content header span{    
-    padding: 12px;
-    font-size: 18px;
+    padding: 12px 12px 0 12px;
+    font-size: 22px;
     font-weight: bold;
     margin-top: 3%;
     background: transparent;
@@ -35,6 +50,7 @@
 
 .schedule-content header span + span{    
     margin-top: 0%;
+    font-size: 18px;
 }
 
 .schedule-dates {

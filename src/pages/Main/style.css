@@ -33,6 +33,7 @@ body{
 }
 .main-options .a {
     display:flex;
+    box-shadow: none;
     padding: 20px 12px;
     background: transparent;
     color: #ffffff;

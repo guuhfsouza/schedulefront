@@ -49,7 +49,7 @@ function Register() {
                 };
                 
                 try{
-                    const res = await api.post("users", dataUser);
+                    await api.post("users", dataUser);
                 }
                 catch(err){
                     return alert(err);
@@ -67,7 +67,7 @@ function Register() {
                 console.warn(response.data.error);
             }
 
-            history.push('profile');
+            history.push('/');
         }
         
         else{
@@ -83,7 +83,6 @@ function Register() {
                 phone,
                 email,
             };
-            console.log(data, cpfStore)
             try{
                   const response =  await api.put("profile", data, {
                     headers: {
@@ -105,7 +104,7 @@ function Register() {
             catch (err){
                 alert(err);
             }
-
+            history.push('profile')
         }
     }
 
@@ -138,12 +137,7 @@ function Register() {
                 
                 elementContainer[0].removeChild(elementMain[0]);
                 elementContainer[0].removeChild(elementFooter[0]);
-                
-                console.log(elementContainer);
-                console.log(elementMain);
-                console.log(elementFooter);
-                
-                ///ReactDom.render(document.getElementsByClassName('main-container'))
+                            
                 }
                 alterDom();    
             }

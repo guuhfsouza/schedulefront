@@ -18,11 +18,11 @@ function ScheduleDetails() {
     const [services, setServices] = useState([]);
 
 
-    const [idServ, setIdServ] = useState(0);
+    const [idServ, setIdServ] = useState(1);
     const [client, setClient] = useState("");
     const [hour, setHour] = useState("");
 
-    const history = useHistory();
+    const [updateServices, setUpdateServices] = useState(false);
 
     useEffect(() => {
         async function getScheduleProfile(){
@@ -31,8 +31,6 @@ function ScheduleDetails() {
                 date: date
             }})
             setScheduleProfile(response.data);
-            // if(response.data !== [])
-            //     validateStatus();
         }
 
         async function getServices(){
@@ -43,37 +41,17 @@ function ScheduleDetails() {
             })
             setServices(response.data);
         }
-//#region
-    //    function validateStatus() {
-    //     const elementSvg = document.getElementsByName('svg');
-    //     console.log('valida status')
-    //     console.log(scheduleProfile)
-    //     scheduleProfile.map( scheduleProfile => {
-    //         return(
-    //             ()=> {
-    //                 if(scheduleProfile.status === 'aberto'){
-    //                     elementSvg[0].setAttribute('color', "green")
-    //                     console.log('green')
-    //                 }
-    //                 else{
-    //                     elementSvg[0].setAttribute('color', "#c40505")
-    //                     console.log('gred')
-    //                 }
-    //             }
-    //         )
-    //     })
-    //}
-//#endregion
     getServices();
     getScheduleProfile();
-    }, [idUser]);
+    
+    }, [updateServices]);
 
 
     async function handleSchedule(e){
         e.preventDefault();
 
         const data = {
-            idServ,
+            idService : idServ,
             client,
             date,
             hour,
@@ -82,15 +60,14 @@ function ScheduleDetails() {
             idUser
         }
 
-        console.log(idServ)
-
-       const response = await api.post('schedules', data);
-
-       alert(response);
-       history.push('/schedule-details');
-
-    const elemModal = document.getElementById('Fechar');
-    elemModal.click() ;
+        const response = await api.post('schedules', data);
+        setUpdateServices(updateServices === false ? true : false);
+        alert(response.data.sucess || response.data.error || response.data.warning) 
+    
+       const elemModal = document.getElementById('Fechar');
+       elemModal.click();
+       setClient("");
+       setHour("");
     }
 
     return(
@@ -104,11 +81,11 @@ function ScheduleDetails() {
                     </a>
                 </div>
                 <ul>
-                    {scheduleProfile.map( scheduleProfile => {
+                    {scheduleProfile.map(scheduleProfile => {
                         return(
                             <li key={scheduleProfile.idSchedule}>
                                 <div className="li-line-sup">
-                                    <span>Cliente: Gustavo</span>
+                                    <span>Barbeiro: {scheduleProfile.nameUser}</span>
                                     <MdBookmark name='svg'/>
                                 </div>
                                 <span>Serviço: {scheduleProfile.service}</span>
@@ -128,18 +105,18 @@ function ScheduleDetails() {
             <div id="div-Principal" >
                 <form id="abrirModal" onSubmit={handleSchedule} className="modal">
                     <a href="#fechar" id="Fechar" title="Fechar" className="fechar">x</a>
-                        <input placeholder="Cliente" value={client} onChange={e => setClient(e.target.value)}
-                        />
-                        <select>
-                            {services.map( service => {
+                        <input placeholder="Cliente" value={client} onChange={e => setClient(e.target.value)}/>
+
+                        <select value={services.idService} onChange={e => setIdServ(e.target.value)}>
+                            {services.map(service => {
                                 return(
-                                    <option key={service.idService}
-                                        value={idServ} 
-                                            onChange={e => setIdServ(e.target.value)}
-                                    >{service.service}</option>
+                                    <option key={service.idService} 
+                                    value={service.idService}>
+                                        {service.service}</option>
                                 )}
                             )}
                         </select>
+
                         <input type="time" placeholder="Hora" value={hour}
                         onChange={e => setHour(e.target.value)}/>
                         <button className='modal-button' type="submit" >Agendar</button>

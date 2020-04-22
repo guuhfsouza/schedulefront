@@ -145,6 +145,10 @@
         grid-gap: 20px;
     }
 
+    .service-list ul{
+        grid-template-columns: repeat(2, 1fr);
+      }
+
     .services-content section{
         width: auto;
     }

@@ -58,13 +58,10 @@ function Schedule() {
                             <form> 
                                 <strong>Barbeiro: </strong>
                                 <p>{localStorage.getItem('nameUser')}</p>
-                                <strong>Agenda: </strong>
-                                <p>Quase completa</p>
                                 <Link onClick={ () =>{
                                     const day = new Date();
                                     localStorage.setItem("days", days + "/" +
                                      (day.getMonth()+1) + "/" + day.getFullYear())
-                                    console.log(localStorage.getItem('days'))
                                 }} to="/schedule-details"  className="button-list"><p>Detalhes</p></Link>
                             </form>
                         </li>

@@ -20,8 +20,6 @@ function Login () {
                 }
             });
 
-            console.log(response.data);
-
             localStorage.setItem('typeUser', response.data.typeUser);
             localStorage.setItem('user', response.data.email);
             localStorage.setItem('cpfStore', response.data.cpf_People);

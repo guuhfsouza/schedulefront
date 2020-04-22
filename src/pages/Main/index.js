@@ -17,7 +17,7 @@ function Main() {
     return(
         <div className="main-container">
             <div className="main-content">
-                <img src={Logo} alt="Logo"/>
+                <img src={Logo} alt="Logo" onClick={() => history.push('/schedule')}/>
                 <div className="main-options">
                     <Link to="/schedule" className="a" >
                         Home

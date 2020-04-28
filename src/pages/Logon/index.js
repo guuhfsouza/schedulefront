@@ -26,7 +26,10 @@ function Login () {
             localStorage.setItem('nameUser', response.data.nameUser);
             localStorage.setItem('idUser', response.data.idUser);
 
-            history.push('schedule');
+            if(response.data.active === "Sim")
+                history.push('schedule');
+            else
+                alert("Usuário inativo. Acione o proprietário para desbloqueio.")
 
         } catch (error){
             alert(error);

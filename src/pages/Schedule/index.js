@@ -11,7 +11,8 @@ import Logo from '../../assets/logo.ico'
 
 
 function Schedule() {
-    const user = localStorage.getItem('user')
+    //const user = localStorage.getItem('user')
+    const nameUser = localStorage.getItem('nameUser')
     const [days, setDays] = useState([]);
     const history = useHistory();
     
@@ -48,7 +49,7 @@ function Schedule() {
                 <header>
                     <img src={Logo} alt="Logo"/>
                     <div className="header-text">
-                        <span>Olá {user}, seja bem vindo!</span>
+                        <span>Olá {nameUser}, seja bem vindo!</span>
                         <span>Fique a vontade para agendar seus comprimissos. Aqui você poderá organizar melhor seus afazeres e otimizar seu tempo.</span>
                     </div>
                 </header>

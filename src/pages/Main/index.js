@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link, useHistory} from 'react-router-dom';
 //import {TiThMenu} from 'react-icons/ti'
 
@@ -9,6 +9,18 @@ import Logo from '../../assets/logo.ico'
 
 function Main() {
     const history = useHistory();
+
+    useEffect(()=> {
+        const main = document.getElementsByClassName('main-options');
+        const services = document.getElementsByClassName('a');
+                 
+        if(localStorage.getItem('typeUser') === 'N'){
+            main[0].removeChild(services[3]);
+            main[0].removeChild(services[2]); 
+            main[0].removeChild(services[1]);
+        }
+
+    }, [])
 
     function logout (){
         localStorage.clear();

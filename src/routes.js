@@ -7,6 +7,7 @@ import ScheduleDetails from './pages/ScheduleDetails';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import Service from  './pages/ServicesProfile';
+import User from  './pages/User';
 // import Main from  './pages/Main';
 // import Footer from './pages/Footer';
 
@@ -20,6 +21,7 @@ function Routes() {
                 <Route path="/profile" component={Profile}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/service" component={Service}/>
+                <Route path="/user" component={User}/>
                 {/* <Route path="/main" component={Main}/>
                 <Route path="/footer" component={Footer}/> */}
             </Switch>

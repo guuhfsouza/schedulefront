@@ -1,0 +1,140 @@
+.user-container{
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+}
+
+.user-container .user-content{
+    display: grid;
+    grid-gap: 12px;
+}
+
+.user-content form{
+    border-radius: 8px;
+    border: none;
+    background: #ffffff;
+    box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+    margin: 2%;
+    margin-bottom: 0;
+    padding: 12px;
+}
+
+.user-content form .user-content-data, .user-content-submit{
+    margin: 1% 0;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+}
+
+.user-content form .user-content-submit{
+    justify-content: center;
+    align-items: center;
+}
+
+.user-content form .user-content-data #texts{
+    display: flex;
+    width: 70%; 
+    justify-content: space-between;   
+    background: transparent;
+}
+
+.user-content form .user-content-data #checks{
+    display: flex;
+    width: 30%;
+    justify-content: space-between;   
+    background: transparent;
+    align-items: center;
+}
+
+.user-content form .user-content-data #checks span{
+    outline: none;
+    padding: 10px;
+    margin: auto 3%;
+    border: none;
+    background: transparent;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.user-content form .user-content-data input{
+    outline: none;
+    width: 50%;
+    padding: 10px;
+    margin: auto 3%;
+    border-radius: 8px;
+    border: none;
+    border-bottom: 1px solid;
+    background: transparent;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.user-content form .user-content-submit button{
+    padding: 12px 70px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-content section{
+    border-radius: 8px;
+    border: none;
+    background: #ffffff;
+    box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+    margin: 2%;
+    margin-top: 0;
+    padding: 12px;
+}
+
+.user-content section ul{
+    background: transparent;
+    width: auto;
+    padding: 0;
+}
+
+.user-content section ul li{
+    list-style: none;
+    margin: 1%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    background: transparent;
+}
+
+.user-content section ul li #texts{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.user-content section ul li #checks{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+
+.user-content section ul li span, input{
+    outline: none;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    width: auto;
+    font-size: 15px;
+    font-weight: 700;
+
+}
+
+.S, .Sim{
+    opacity: 1;
+}
+.N, .Nao{
+    opacity: 0.3;
+}

@@ -14,7 +14,7 @@ function Login () {
     async function login(e) {
        e.preventDefault();
        try{
-            const response = await api.get('users', {headers : {
+            const response = await api.get('authentication', {headers : {
                     email: user,
                     password: pass
                 }

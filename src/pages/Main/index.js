@@ -58,15 +58,15 @@ function Main() {
                     </label>
                     </div>
                     <nav className="sidebar" role="complementary">
-                    <Link to="/service" className="a">
+                    {/* <Link to="/service" className="a">
                         Serviços
-                    </Link>
+                    </Link> */}
                     {/* <Link to="" className="a">
                         Usuários
                     </Link> */}
-                    <Link to="/profile" className="a">
+                    {/* <Link to="/profile" className="a">
                         Perfil
-                    </Link>
+                    </Link> */}
                     <button className="a" onClick={logout}>
                         Sair
                     </button>

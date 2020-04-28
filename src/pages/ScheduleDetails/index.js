@@ -10,9 +10,9 @@ import './style.css';
 import api from '../../services/api';
 
 function ScheduleDetails() {
-    const idUser = localStorage.getItem('idUser');
-    const cpfStore = localStorage.getItem('cpfStore');
-    const date = localStorage.getItem('days');
+    const idUser = sessionStorage.getItem('idUser');
+    const cpfStore = sessionStorage.getItem('cpfStore');
+    const date = sessionStorage.getItem('days');
     const [scheduleProfile, setScheduleProfile] = useState([]);
     const [services, setServices] = useState([]);
 

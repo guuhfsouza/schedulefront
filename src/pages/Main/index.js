@@ -14,7 +14,7 @@ function Main() {
         const main = document.getElementsByClassName('main-options');
         const services = document.getElementsByClassName('a');
                  
-        if(localStorage.getItem('typeUser') === 'N'){
+        if(sessionStorage.getItem('typeUser') === 'N'){
             main[0].removeChild(services[3]);
             main[0].removeChild(services[2]); 
             main[0].removeChild(services[1]);
@@ -23,7 +23,7 @@ function Main() {
     }, [])
 
     function logout (){
-        localStorage.clear();
+        sessionStorage.clear();
         history.push("")
     }
 

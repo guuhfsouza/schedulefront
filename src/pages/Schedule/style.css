@@ -1,7 +1,7 @@
 .schedule-container{
     width: 100%;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0 ;
     display: grid;
 }
 
@@ -140,14 +140,17 @@
     background: transparent;
     color:rgba(41, 6, 6, 0.795);
     cursor: pointer;
-    
+    display: flex;   
+    align-items: center;
 }
+
 
 .schedule-dates ul li form .button-list:hover{
      transform: translateY(-3px) translateX(3px);
+     color: #9e0707; 
 }
 
-.schedule-dates ul li form .button-list p{
+.schedule-dates ul li form .button-list p, svg{
     font-size: 16px;
     font-weight: bold;
     background: transparent;
@@ -160,9 +163,15 @@
 
 @media (max-width:425px) {
 
+    .schedule-container{
+        width: auto;
+        margin: 0 ;
+        display: grid;
+    }
+    
     .schedule-dates ul{
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 12px;
+        grid-gap: 8px;
         list-style: none;
         padding: 2%;
         background: #ffffff;
@@ -175,9 +184,7 @@
         background: #ffffff;
         border-radius: 8px;
         box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
-        
         margin: 0;
-        display: grid;
         text-align: left;
     }
 

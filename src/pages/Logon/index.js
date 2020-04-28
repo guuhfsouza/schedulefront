@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {useHistory, Link} from  'react-router-dom';
+import {FaArrowRight} from 'react-icons/fa';
 
 import api from '../../services/api';
 
@@ -20,11 +21,11 @@ function Login () {
                 }
             });
 
-            localStorage.setItem('typeUser', response.data.typeUser);
-            localStorage.setItem('user', response.data.email);
-            localStorage.setItem('cpfStore', response.data.cpf_People);
-            localStorage.setItem('nameUser', response.data.nameUser);
-            localStorage.setItem('idUser', response.data.idUser);
+            sessionStorage.setItem('typeUser', response.data.typeUser);
+            sessionStorage.setItem('user', response.data.email);
+            sessionStorage.setItem('cpfStore', response.data.cpf_People);
+            sessionStorage.setItem('nameUser', response.data.nameUser);
+            sessionStorage.setItem('idUser', response.data.idUser);
 
             if(response.data.active === "Sim")
                 history.push('schedule');
@@ -40,7 +41,7 @@ function Login () {
     return (
         <div className="login-container">
             <section onSubmit={login} className="form">
-                <h1>Faça Login</h1>
+                <h1 className="h1">Faça Login</h1>
                 <form >
                     <input required={true} type='email' placeholder='E-mail'
                     value={user} onChange={e => setUser(e.target.value)}/>
@@ -48,8 +49,10 @@ function Login () {
                     value={pass} onChange={e => setPass(e.target.value)}/>
                     <button type="submit">Acessar</button>
                     <div className="link-container">
-                        {/* <a href="/">Recuperar Senha</a> */}
-                        <Link to='register'>Cadastrar</Link> 
+                        <Link to="forgot-password">
+                           <FaArrowRight/> <p className="p">Recuperar Senha</p></Link>
+                        <Link to='register'>
+                        <FaArrowRight/> <p className="p">Primeiro Acesso</p></Link> 
                     </div>
                 </form>
             </section>

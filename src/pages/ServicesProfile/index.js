@@ -10,7 +10,7 @@ import './style.css'
 import apiservice from '../../services/apiservice';
 
 function Services(){
-    const cpfStore = localStorage.getItem('cpfStore');
+    const cpfStore = sessionStorage.getItem('cpfStore');
     const [services, setServices] = useState([]);
 
     const [idService, setIdService] = useState(0);
@@ -23,7 +23,6 @@ function Services(){
         async function getServices(){
             const response = await apiservice.get(`Services?cpfStore=${cpfStore}`);
             setServices(response.data);
-            console.log(response.data)
         }
         getServices();
     }, [update])  

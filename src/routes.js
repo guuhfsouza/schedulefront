@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import Register from './pages/Register';
 import Service from  './pages/ServicesProfile';
 import User from  './pages/User';
+import ForgotPass from './pages/ForgotPassword';
 // import Main from  './pages/Main';
 // import Footer from './pages/Footer';
 
@@ -16,6 +17,7 @@ function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Login}/>
+                <Route path="/forgot-password" component={ForgotPass}/>
                 <Route path="/schedule" component={Schedule}/>
                 <Route path="/schedule-details" component={ScheduleDetails}/>
                 <Route path="/profile" component={Profile}/>

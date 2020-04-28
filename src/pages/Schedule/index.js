@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
+import {FaSearch} from 'react-icons/fa';
 
 import Footer from '../Footer';
 import Main from '../Main';
@@ -11,15 +12,15 @@ import Logo from '../../assets/logo.ico'
 
 
 function Schedule() {
-    //const user = localStorage.getItem('user')
-    const nameUser = localStorage.getItem('nameUser')
+    //const user = sessionStorage.getItem('user')
+    const nameUser = sessionStorage.getItem('nameUser')
     const [days, setDays] = useState([]);
     const history = useHistory();
     
     useEffect(() => {        
 
         function validateLogin(){
-            if(!localStorage.getItem('user')){
+            if(!sessionStorage.getItem('user')){
                 return history.push("/");
             }
             countDays();
@@ -64,12 +65,15 @@ function Schedule() {
                             </div>
                             <form> 
                                 <strong>Barbeiro: </strong>
-                                <p>{localStorage.getItem('nameUser')}</p>
+                                <p>{sessionStorage.getItem('nameUser')}</p>
                                 <Link onClick={ () =>{
                                     const day = new Date();
-                                    localStorage.setItem("days", days + "/" +
+                                    sessionStorage.setItem("days", days + "/" +
                                      (day.getMonth()+1) + "/" + day.getFullYear())
-                                }} to="/schedule-details"  className="button-list"><p>Detalhes</p></Link>
+                                }} to="/schedule-details"  className="button-list">
+                                    <FaSearch size={16}/>
+                                    <p>Detalhes</p>
+                                    </Link>
                             </form>
                         </li>
                         ))}

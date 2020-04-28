@@ -10,7 +10,7 @@ import './style.css';
 import api from '../../services/api';
 
 function Users() {
-    const cpfStore = localStorage.getItem("cpfStore");
+    const cpfStore = sessionStorage.getItem("cpfStore");
     const [email, setEmail] = useState('');
     const [active, setActive] = useState("Nao");
     const [typeUser, setTypeUser] = useState("N");

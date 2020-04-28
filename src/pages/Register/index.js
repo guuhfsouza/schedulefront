@@ -10,8 +10,8 @@ import './style.css';
 import api from '../../services/api';
 
 function Register() {
-    const cpfStore = localStorage.getItem('cpfStore');
-    let idProfile = localStorage.getItem('idProfile');
+    const cpfStore = sessionStorage.getItem('cpfStore');
+    let idProfile = sessionStorage.getItem('idProfile');
 
     const history = useHistory();
 
@@ -43,7 +43,7 @@ function Register() {
                     cpf_People : cpf,  
                     email: email,
                     password: " ",
-                    active: "S",
+                    active: "Sim",
                     typeUser: "S",
                     nameUser: name.split(' ')[0]
                 };
@@ -59,7 +59,6 @@ function Register() {
                     }
                     else if((response.status === 500)){
                         alert("Falha de conexão com a base de dados. Favor acionar o suporte.");
-                        console.warn(response.data.error);
                     }
         
              
@@ -68,7 +67,7 @@ function Register() {
                     return alert(err);
                 }
             }
-            history.push('/');
+            history.push('/forgot-password');
         }
         
         else{
@@ -116,7 +115,7 @@ function Register() {
                     const response = await api.get('profile', {
                         headers: {
                             cpf: cpfStore,
-                            email: localStorage.getItem('user')
+                            email: sessionStorage.getItem('user')
                         }
                     });
 

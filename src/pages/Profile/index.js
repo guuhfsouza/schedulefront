@@ -12,8 +12,8 @@ import Perfil from '../../images/perfil.jpg'
 import api from '../../services/api';
 
 function Profile(){
-    const cpfStore = localStorage.getItem('cpfStore')
-    const email = localStorage.getItem('user');
+    const cpfStore = sessionStorage.getItem('cpfStore')
+    const email = sessionStorage.getItem('user');
     const [profile, setProfile] = useState([]);
 
     const history = useHistory();
@@ -28,7 +28,7 @@ function Profile(){
                 }
             }).then( response => {
                 setProfile(response.data);
-                localStorage.setItem('idProfile', response.data.idPeople)
+                sessionStorage.setItem('idProfile', response.data.idPeople)
             });
         }
         else{

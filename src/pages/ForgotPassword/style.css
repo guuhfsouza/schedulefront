@@ -65,35 +65,7 @@
     filter: brightness(70%) ;
 }
 
-.link-container{
-    background: #FFFFFF;
-    padding: 3px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.form a{
-    color: rgba(0, 0, 0, 0.795);;
-    font-size: 14px;
-    background: #FFFFFF;
-    text-decoration: none;
-    position: relative;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-}
-
-.form a .p{
-    color: rgba(0, 0, 0, 0.795);;
-    font-size: 14px;
-    background: #FFFFFF;
-    text-decoration: none;
-    position: relative;
-    font-weight: 600;
-    display: flex;
-}
-
-.form .h1{
+.form h1, .p{
     color: rgba(0, 0, 0, 0.795);
     font-size: 22px;
     background: #FFFFFF;
@@ -102,6 +74,17 @@
     border-left: 32px;
     position: relative;
     font-weight: 600;
-    justify-content: center;
+    display: flex;
+    align-items: center;
 }
+
+.form h1 .p{
+    width: 80%;
+}
+
+.form h1 svg{
+    margin-left: 0;
+    width: 20%;
+}
+
 

@@ -113,7 +113,7 @@ body{
         width: 20%;
         height: 100%;
         position: fixed;
-        background: #110000;
+        background: -webkit-gradient(linear, left top, right top, from(#340101), to(#110000));
         top: 0px;
         right: 0px;
         z-index: 5;

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import  {FaCheckCircle} from 'react-icons/fa'
+import  {FaCheckCircle, FaArrowLeft} from 'react-icons/fa'
+import { useHistory } from 'react-router-dom';
 
 import Main from '../Main';
 import Footer from '../Footer';
@@ -19,6 +20,8 @@ function Users() {
     const [users, setUsers] = useState([])
     
     const [update, setUpdate] = useState(false);
+
+    const history = useHistory();
 
     useEffect(() =>{
 
@@ -127,6 +130,7 @@ function Users() {
             <Main/>
             <div className="user-content">
                 <form onSubmit={handleUser}>
+                    <FaArrowLeft className="svg" onClick={() => history.push('/schedule')} size={25}/>
                     <div className="user-content-data">
                        <div id="texts">
                            <input value={email} onChange={e => setEmail(e.target.value)} placeholder="E-mail" type="email" required={true}/>

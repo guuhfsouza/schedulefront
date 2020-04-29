@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {FaEdit, FaRegWindowClose} from 'react-icons/fa'
+import {FaEdit, FaRegWindowClose, FaArrowLeft} from 'react-icons/fa'
+import {useHistory} from 'react-router-dom';
 
 import Main from '../Main';
 import Footer from '../Footer';
@@ -18,6 +19,8 @@ function Services(){
     const [price, setPrice] = useState(0.00);
 
     const [update, setUpdate] = useState(true);
+
+    const history = useHistory();
 
     useEffect(() => {
         async function getServices(){
@@ -83,6 +86,7 @@ function Services(){
            <div className="services-content">
                 <section>
                     <form onSubmit={handleService}>
+                        <FaArrowLeft onClick={() => history.push('/schedule')} size={20}/>
                         <span> Adicone produtos para sua loja: {cpfStore}</span>
                         <div className="services-data">
                             <input  value={service1} type="text" required={true} onChange={ e => setService1(e.target.value)}

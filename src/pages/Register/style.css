@@ -26,6 +26,16 @@
  
 }
 
+.register-content form .svg{
+    margin: 4px 4px 4px 4px ;
+    background: transparent;
+    width: auto;
+}
+
+.register-content form .svg:hover{
+    color: #5E0202;
+}
+
 .register-content form span{
     font-weight: bold;
     margin: 8% 4px 4px 4px ;
@@ -77,7 +87,33 @@
 
 @media(max-width: 425px){
     .register-content form{
-        width: 70%;     
+        width: 60%;   
+        padding: 10%;
+        justify-content: left;  
     }
-    
+    .register-content form span{
+        margin: 4px;
+        width: auto;
+    }
+    .register-content form .svg{
+        margin-left: 0;
+        padding-left: 0 ;
+        background: transparent;
+        width: auto;
+    }   
+    .register-content form input{
+        width: auto;
+        margin: 4px;
+        
+    }
+    .register-content form .register-local{
+        display: flex;
+    }
+    .register-content form .register-local input{
+        width: 100%;
+    }
+    .register-content form .register-local span{
+        width: 100%;
+        margin: 4px auto 8px auto;
+    }
 }

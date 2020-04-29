@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {useHistory, Link} from 'react-router-dom';
+import {FaArrowLeft} from 'react-icons/fa'
 
 import Main from '../Main';
 import Footer from '../Footer';
@@ -46,6 +47,7 @@ function Profile(){
             <div className="prof-content">
                 <div className="profile-card">
                     <div className="div-cabecalho">
+                    <FaArrowLeft className="svg" onClick={() => history.push('/schedule')} size={25}/>
                         <img src={Perfil} onClick={handleImagePerfil} alt="Foto de Perfil"/>
                         {/* <span> Perfil</span> */}
                     </div>

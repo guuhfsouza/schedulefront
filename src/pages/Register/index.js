@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
+import {FaArrowLeft} from  'react-icons/fa'
 
 import Main from '../Main';
 import Footer from '../Footer'
@@ -151,6 +152,7 @@ function Register() {
             <Main id="main"/>
             <div className="register-content">
                 <form onSubmit={handleProfile}>
+                    <FaArrowLeft className="svg" onClick={() => history.push('/schedule')} size={25}/>
                     <span>Nome: </span>
                     <input required={true} placeholder="Nome"
                         value={name} onChange={e => setName(e.target.value)}/>

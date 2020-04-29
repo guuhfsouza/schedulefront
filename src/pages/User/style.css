@@ -27,6 +27,19 @@
     background: transparent;
 }
 
+form .svg{
+    margin: 0 2%;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+}
+
+form .svg:hover{
+    color: #5E0202;
+}
+
+
 .user-content form .user-content-submit{
     justify-content: center;
     align-items: center;

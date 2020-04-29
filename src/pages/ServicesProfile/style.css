@@ -22,6 +22,7 @@
     /* max-width: auto;
     min-width: auto; */
 }
+
 .services-content section + section{
     width: 65%;
 }
@@ -112,6 +113,20 @@
     font-weight: 700;
 }
 
+.services-content section form svg{
+    outline: none;
+    width: auto;
+    padding: 3%;
+    margin: auto 3%;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 700;
+}
+.services-content section form svg:hover{
+    color: #5E0202;
+}
+
+
 .services-content section form .services-data input{
     outline: none;
     width: auto;
@@ -124,6 +139,10 @@
 
     font-size: 15px;
     font-weight: 700;
+}
+
+.services-content section form .services-data input + input {
+    margin-bottom: 5%;
 }
 
 .services-content section form button{

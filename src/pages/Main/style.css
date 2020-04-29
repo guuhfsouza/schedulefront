@@ -43,7 +43,6 @@ body{
 .main-options svg{
     visibility: hidden;
 }
-
 #navicon{
     visibility: hidden;
 }
@@ -125,14 +124,12 @@ body{
         -ms-transition: 0.2s all;
         -moz-transition: 0.2s all;
         -o-transition: 0.2s all;
-
-        display: grid;
         justify-content: center;
       }
 
-      .sidebar .a{
-          position: absolute;
+      .sidebar a{
           color: #ffffff;
+          text-decoration: none;
       }
 
       #navicon {
@@ -167,10 +164,15 @@ body{
         -o-transform: rotate(-45deg);
       }
 
-      #navicon:checked ~ .sidebar .a{
-          position: absolute;
-          visibility: visible;
-          background:transparent;
-          margin-top: 40%;
+      #navicon:checked ~ .sidebar .main-options{
+        margin-top: 63%;
+        display: grid;
+      }
+
+      #navicon:checked ~ .sidebar .main-options .a{
+        padding: 2px;
+        visibility: visible;
+        background:transparent;
+        margin-top: 1%;
       }
 }

@@ -93,6 +93,11 @@
     display: flex;
 }
 
+.form a:hover{
+    transform:  translateX(3px) translateY(-3px);   
+    transition: all 0.2s
+}
+
 .form .h1{
     color: rgba(0, 0, 0, 0.795);
     font-size: 22px;

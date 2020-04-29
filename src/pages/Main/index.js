@@ -58,22 +58,24 @@ function Main() {
                     </label>
                     </div>
                     <nav className="sidebar" role="complementary">
-                    {/* <Link to="/service" className="a">
-                        Serviços
-                    </Link> */}
-                    {/* <Link to="" className="a">
-                        Usuários
-                    </Link> */}
-                    {/* <Link to="/profile" className="a">
-                        Perfil
-                    </Link> */}
-                    <button className="a" onClick={logout}>
-                        Sair
-                    </button>
-                    </nav>
-
-
-                    
+                        <div className="main-options">
+                            <Link to="/schedule" className="a" >
+                                Home
+                            </Link>
+                            <Link to="/service" className="a">
+                                Serviços
+                            </Link>
+                            <Link to="/user" className="a">
+                                Usuários
+                            </Link>
+                            <Link to="/profile" className="a">
+                                Perfil
+                            </Link>
+                            <button className="a" onClick={logout}>
+                                Sair
+                            </button>
+                        </div>
+                    </nav>                    
                 </div>
             </div>
         </div>

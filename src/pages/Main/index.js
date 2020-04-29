@@ -32,6 +32,7 @@ function Main() {
             <div className="main-content">
                 <img src={Logo} alt="Logo" onClick={() => history.push('/schedule')}/>
                 <div className="main-options">
+                    <input type="checkbox" id="navicon"/>
                     <Link to="/schedule" className="a" >
                         Home
                     </Link>
@@ -49,7 +50,6 @@ function Main() {
                     </button>
                     {/* <TiThMenu id="menu-mobile" color={"#ffffff"} size={30}/> */}
 
-                    <input type="checkbox" id="navicon"/>
                     <div className="nav-toggle">
                     <label htmlFor="navicon" className="hamburger">
                         <span></span>

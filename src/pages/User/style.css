@@ -21,7 +21,7 @@
 
 .user-content form .user-content-data, .user-content-submit{
     margin: 1% 0;
-    padding: 12px;
+    padding: 2%;
     display: flex;
     justify-content: space-between;
     background: transparent;
@@ -38,7 +38,6 @@ form .svg{
 form .svg:hover{
     color: #5E0202;
 }
-
 
 .user-content form .user-content-submit{
     justify-content: center;
@@ -150,4 +149,24 @@ form .svg:hover{
 }
 .N, .Nao{
     opacity: 0.3;
+}
+
+@media(max-width: 425px){
+    .user-content form .user-content-data{
+        display: grid;
+        width: auto;
+        justify-content: center;
+    }
+ 
+    .user-content form .user-content-data #texts{
+        width: auto;
+        display: block; 
+    }
+    .user-content form .user-content-data #texts input{
+        width: 92%;
+    }    
+    .user-content form .user-content-data #checks{
+        margin-top: 4%;
+        width: auto;
+   }
 }

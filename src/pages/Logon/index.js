@@ -42,7 +42,7 @@ function Login () {
         <div className="login-container">
             <section onSubmit={login} className="form">
                 <h1 className="h1">Faça Login</h1>
-                <form >
+                <form  >
                     <input required={true} type='email' placeholder='E-mail'
                     value={user} onChange={e => setUser(e.target.value)}/>
                     <input required={true} type='password' placeholder='Senha'

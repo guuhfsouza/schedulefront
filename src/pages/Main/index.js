@@ -33,9 +33,9 @@ function Main() {
                 <img src={Logo} alt="Logo" onClick={() => history.push('/schedule')}/>
                 <div className="main-options">
                     <input type="checkbox" id="navicon"/>
-                    <Link to="/schedule" className="a" >
+                    {/* <Link to="/schedule" className="a" >
                         Home
-                    </Link>
+                    </Link> */}
                     <Link to="/service" className="a">
                         Serviços
                     </Link>
@@ -59,9 +59,6 @@ function Main() {
                     </div>
                     <nav className="sidebar" role="complementary">
                         <div className="main-options">
-                            <Link to="/schedule" className="a" >
-                                Home
-                            </Link>
                             <Link to="/service" className="a">
                                 Serviços
                             </Link>

@@ -29,14 +29,26 @@
     margin: 3% 0;
     text-align: left;
     padding: 0 12px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.forgot-container .form h1 .p{
+    width: 80%;
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    margin-left: 0;
 }
 
 .forgot-container .form h1 svg{
     width: auto;
     background: transparent;
-    margin:  0 3%;
+    margin-left: 2%;
     text-align: left;
-    padding: 0 12px;
+    padding: 0 0 0 12px;
 }
 
 .forgot-container .form form{  

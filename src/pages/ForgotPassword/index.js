@@ -37,7 +37,8 @@ function ForgotPassword () {
     return (
         <div className="forgot-container">
             <section onSubmit={forgot} className="form">
-                <h1><FaArrowLeft onClick={() => history.push('/')} size={20} /><p className="p">Esqueci Minha senha</p></h1>
+                <h1><FaArrowLeft onClick={() => history.push('/')} size={20} />
+                <p className="p">Recuperar Senha</p></h1>
                 <form >
                     <input required={true} type='email' placeholder='E-mail'
                     value={user} onChange={e => setUser(e.target.value)}/>

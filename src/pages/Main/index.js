@@ -13,11 +13,20 @@ function Main() {
     useEffect(()=> {
         const main = document.getElementsByClassName('main-options');
         const services = document.getElementsByClassName('a');
-                 
-        if(sessionStorage.getItem('typeUser') === 'N'){
+        console.log(services);
+        console.log(main)
+
+        
+        if(sessionStorage.getItem('typeUser') === 'N'){            
             main[0].removeChild(services[3]);
             main[0].removeChild(services[2]); 
             main[0].removeChild(services[1]);
+            main[0].removeChild(services[0]);
+
+            //main sandwitch
+            main[1].removeChild(services[2]); 
+            main[1].removeChild(services[1]);
+            main[1].removeChild(services[0]);
         }
 
     }, [])
@@ -32,7 +41,7 @@ function Main() {
             <div className="main-content">
                 <img src={Logo} alt="Logo" onClick={() => history.push('/schedule')}/>
                 <div className="main-options">
-                    <input type="checkbox" id="navicon"/>
+                
                     {/* <Link to="/schedule" className="a" >
                         Home
                     </Link> */}
@@ -48,9 +57,10 @@ function Main() {
                     <button className="a" onClick={logout}>
                         Sair
                     </button>
-                    {/* <TiThMenu id="menu-mobile" color={"#ffffff"} size={30}/> */}
 
-                    <div className="nav-toggle">
+                    {/* Menu lateral para mobile */}
+                <input type="checkbox" id="navicon"/>
+                <div className="nav-toggle">
                     <label htmlFor="navicon" className="hamburger">
                         <span></span>
                         <span></span>
@@ -72,7 +82,7 @@ function Main() {
                                 Sair
                             </button>
                         </div>
-                    </nav>                    
+                    </nav>        
                 </div>
             </div>
         </div>

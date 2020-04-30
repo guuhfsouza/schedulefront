@@ -18,15 +18,15 @@ function Main() {
 
         
         if(sessionStorage.getItem('typeUser') === 'N'){            
-            main[0].removeChild(services[3]);
+
             main[0].removeChild(services[2]); 
             main[0].removeChild(services[1]);
             main[0].removeChild(services[0]);
 
             //main sandwitch
-            main[1].removeChild(services[2]); 
+            main[1].removeChild(services[3]); 
+            main[1].removeChild(services[2]);
             main[1].removeChild(services[1]);
-            main[1].removeChild(services[0]);
         }
 
     }, [])

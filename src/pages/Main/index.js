@@ -13,9 +13,7 @@ function Main() {
     useEffect(()=> {
         const main = document.getElementsByClassName('main-options');
         const services = document.getElementsByClassName('a');
-        console.log(services);
-        console.log(main)
-
+    
         
         if(sessionStorage.getItem('typeUser') === 'N'){            
 

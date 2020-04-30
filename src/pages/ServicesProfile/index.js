@@ -8,14 +8,15 @@ import Footer from '../Footer';
 import '../../global.css'
 import './style.css'
 
-import apiservice from '../../services/apiservice';
+//import apiservice from '../../services/apiservice';
+import api from '../../services/api';
 
 function Services(){
     const cpfStore = sessionStorage.getItem('cpfStore');
     const [services, setServices] = useState([]);
 
     const [idService, setIdService] = useState(0);
-    const [service1, setService1] = useState("");
+    const [service, setService] = useState("");
     const [price, setPrice] = useState(0.00);
 
     const [update, setUpdate] = useState(true);
@@ -24,7 +25,12 @@ function Services(){
 
     useEffect(() => {
         async function getServices(){
-            const response = await apiservice.get(`Services?cpfStore=${cpfStore}`);
+            //const response = await apiservice.get(`Services?cpfStore=${cpfStore}`);
+            const response = await api.get('services', {
+                headers:{
+                    authorization: cpfStore
+                }
+            });
             setServices(response.data);
         }
         getServices();
@@ -32,15 +38,21 @@ function Services(){
 
     async function handleService(){
 
+        alert(idService);
+
         if(idService === 0){
             const data = {
-                service1,
+                service,
                 price,
                 ative: "S",
                 cpfStore: cpfStore
             };
-
-            const response = await apiservice.post('Services', data);
+            console.log(data);
+            const response = await api.post('Services', data);
+            if(response.status=== 200)
+                alert(response.data.sucess);
+            else
+                alert(response.data.error)
         }
         else{
 
@@ -48,36 +60,42 @@ function Services(){
     
             const data = {
                 idService, 
-                service1 : service1,
-                price : price.replace(',','.'),
+                service : service,
+                price :  price.toString().match(',')? price.replace(',','.') : price,
                 ative: status.ative,
                 cpfStore: status.cpfStore
             };
-            const response = await apiservice.put('services', data);
+            const response = await api.put('services', data, {
+                headers:{
+                    authorization: cpfStore
+                }
+            });
             setServices(services.filter(services => services.idService !== idService, ...response))
             
         }
     }
     async function handleStatus(id)
     {
-        let data =  {};
+        const status = services.filter(services => services.idService === id)[0];
+        let active = "S";
+        if(status.ative.trim() === "S")
+            active = "N";
+        else
+            active = "S";
 
-            const status = services.filter(services => services.idService === id)[0];
-            let active = "S";
-            if(status.ative.trim() === "S")
-                active = "N";
-            else
-                active = "S";
-
-            data = {
+        const data = {
                 idService : id, 
-                service1 : status.service1,
+                service : status.service,
                 price : status.price,
                 ative: active,
                 cpfStore: status.cpfStore
-            };
-            const response = await apiservice.put('services', data);
-            setUpdate(update === false ? true : false)
+        };
+        const response = await api.put('services', data, {
+            headers: {
+                authorization: cpfStore
+            }
+        });
+        setUpdate(update === false ? true : false)
     }
 
     return(
@@ -89,7 +107,7 @@ function Services(){
                         <FaArrowLeft onClick={() => history.push('/schedule')} size={20}/>
                         <span> Adicone produtos para sua loja: {cpfStore}</span>
                         <div className="services-data">
-                            <input  value={service1} type="text" required={true} onChange={ e => setService1(e.target.value)}
+                            <input  value={service} type="text" required={true} onChange={ e => setService(e.target.value)}
                              placeholder="Serviço"/>
                             <input value={price === 0 ? "" : price} required={true} onChange={ e => setPrice(e.target.value)}
                              placeholder="Preço"/>
@@ -106,7 +124,7 @@ function Services(){
                                 <li key={services.idService}>
                                     <div className="service-list-controls">
                                         <FaEdit color={'#110000'} size={20} type="button" onClick={() => {
-                                            setService1(services.service1)
+                                            setService(services.service)
                                             setPrice(services.price)
                                             setIdService(services.idService)
                                         }
@@ -115,7 +133,7 @@ function Services(){
                                                 handleStatus(services.idService)
                                             }/>
                                     </div>
-                                    <span >Serviço: {services.service1}</span>
+                                    <span >Serviço: {services.service}</span>
                                     <span>Preço: {Intl.NumberFormat('pt-BR', 
                                         {style: 'currency', currency: 'BRL'}).format(services.price)}</span>
                                     <span>Ativo: {services.ative}</span>

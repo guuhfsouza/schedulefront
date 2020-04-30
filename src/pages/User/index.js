@@ -47,14 +47,14 @@ function Users() {
                 if(idElement === "Admin")
                     setTypeUser("S");
                 else if(idElement === "Ativo")
-                    setActive("S");
+                    setActive("Sim");
              }
              else{
                  validate.setAttribute("opacity", "0.3");
                  if(idElement === "Admin")
                     setTypeUser("N");
                 else if(idElement === "Ativo")
-                    setActive("N");
+                    setActive("Nao");
             }
     }
 

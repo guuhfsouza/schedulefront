@@ -116,6 +116,7 @@ form .svg:hover{
     font-size: 16px;
     font-weight: 700;
     background: transparent;
+    border-bottom: 1px solid;
 }
 
 .user-content section ul li #texts{
@@ -153,11 +154,9 @@ form .svg:hover{
 
 @media(max-width: 425px){
     .user-content form .user-content-data{
-        display: grid;
+        display: inline-block;
         width: auto;
-        justify-content: center;
     }
- 
     .user-content form .user-content-data #texts{
         width: auto;
         display: block; 
@@ -169,4 +168,25 @@ form .svg:hover{
         margin-top: 4%;
         width: auto;
    }
+   .user-content section ul li{
+        width: auto;
+        display: grid;
+    }
+
+    .user-content section ul li #texts{
+        width: 100%;
+    }
+    .user-content section ul li #texts span{
+        width: 70%;
+    }
+
+    .user-content section ul li #texts span + span{
+        width: 30%;
+    }
+    .user-content section ul li #checks{
+        width: auto;
+    }
+    .user-content section ul li #checks span{
+        width: 35%;
+    } 
 }

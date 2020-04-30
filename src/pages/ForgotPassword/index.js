@@ -6,12 +6,12 @@ import api from '../../services/api';
 import './style.css';
 import '../../global.css';
 
-function Login () {
+function ForgotPassword () {
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
     const history = useHistory();
 
-    async function login(e) {
+    async function forgot(e) {
        e.preventDefault();
        try{
             const data = {
@@ -35,8 +35,8 @@ function Login () {
 
 
     return (
-        <div className="login-container">
-            <section onSubmit={login} className="form">
+        <div className="forgot-container">
+            <section onSubmit={forgot} className="form">
                 <h1><FaArrowLeft onClick={() => history.push('/')} size={20} /><p className="p">Esqueci Minha senha</p></h1>
                 <form >
                     <input required={true} type='email' placeholder='E-mail'
@@ -52,4 +52,4 @@ function Login () {
 
 
 
-export default Login;
+export default ForgotPassword;

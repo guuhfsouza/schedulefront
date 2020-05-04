@@ -48,7 +48,7 @@ function Services(){
                 cpfStore: cpfStore
             };
             console.log(data);
-            const response = await api.post('Services', data);
+            const response = await api.post('services', data);
             if(response.status=== 200)
                 alert(response.data.sucess);
             else
@@ -109,7 +109,7 @@ function Services(){
                         <div className="services-data">
                             <input  value={service} type="text" required={true} onChange={ e => setService(e.target.value)}
                              placeholder="Serviço"/>
-                            <input value={price === 0 ? "" : price} required={true} onChange={ e => setPrice(e.target.value)}
+                            <input value={price === 0 ? "" : price} required={true} type="number" onChange={ e => setPrice(e.target.value)}
                              placeholder="Preço"/>
                         </div>
                         

@@ -80,10 +80,11 @@ function Schedule() {
                                 <Link onClick={ () =>{
                                     const day = new Date();
                                     sessionStorage.setItem("days", days + "/" +
-                                     days.getMonth() + parseInt(monthAdd) + "/" + day.getFullYear())
+                                     ((new Date().getMonth() + monthAdd).toString())+
+                                      "/" + day.getFullYear())
                                 }} to="/schedule-details"  className="button-list">
                                     <FaSearch size={16}/>
-                                    <p>Detalhes</p>
+                                    <p>Horários</p>
                                     </Link>
                             </form>
                         </li>

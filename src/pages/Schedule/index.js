@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory, Link} from 'react-router-dom';
-import {FaSearch} from 'react-icons/fa';
+import {FaSearch, FaArrowLeft, FaArrowRight} from 'react-icons/fa';
 
 import Footer from '../Footer';
 import Main from '../Main';
@@ -16,32 +16,32 @@ function Schedule() {
     const nameUser = sessionStorage.getItem('nameUser')
     const [days, setDays] = useState([]);
     const history = useHistory();
-    
+    const [monthAdd, setMonthAdd] = useState(1)
     useEffect(() => {        
-
         function validateLogin(){
             if(!sessionStorage.getItem('user')){
                 return history.push("/");
             }
             countDays();
         }
-
-
-        function countDays(){
-            let dia = new Date();
-            let ano = dia.getFullYear();
-            let mes = dia.getMonth() + 1;
-            dia = new Date(ano,mes, 0).getDate()
-            let dias = [];
-
-            for(let index = 1; index <= dia; index++){
-                dias.push(index);
-            }
-            
-            return setDays(dias);
-        }
         validateLogin();
-    }, [])
+    }, [monthAdd])
+
+    function countDays(){
+            
+        //faz a contagem de dias de um mês
+                    
+        let dia = new Date();
+        let ano = dia.getFullYear();
+        let mes = dia.getMonth() + parseInt(monthAdd);
+        dia = new Date(ano, mes, 0).getDate()
+        let dias = [];
+        
+        for(let index = 1; index <= dia; index++){
+            dias.push(index);
+        }
+        return setDays(dias);
+    }
 
     return(
         <div className="schedule-container">
@@ -55,6 +55,17 @@ function Schedule() {
                     </div>
                 </header>
                 <div className="schedule-dates">
+                    <nav>
+                        <FaArrowLeft className="left" size={25} color={'#ffffff'}
+                        onClick={() =>{ 
+                            setMonthAdd(parseInt(monthAdd) - 1)
+                        }}/>
+                        <p>Mês {(new Date().getMonth() + monthAdd).toString()}</p>
+                        <FaArrowRight className="rigth" size={25} color={'#ffffff'}
+                        onClick={() => {
+                            setMonthAdd(parseInt(monthAdd) + 1)
+                        }} />
+                    </nav>
                     <ul>
                         {days.map(days => (
                             <li key={days}>
@@ -69,7 +80,7 @@ function Schedule() {
                                 <Link onClick={ () =>{
                                     const day = new Date();
                                     sessionStorage.setItem("days", days + "/" +
-                                     (day.getMonth()+1) + "/" + day.getFullYear())
+                                     days.getMonth() + parseInt(monthAdd) + "/" + day.getFullYear())
                                 }} to="/schedule-details"  className="button-list">
                                     <FaSearch size={16}/>
                                     <p>Detalhes</p>

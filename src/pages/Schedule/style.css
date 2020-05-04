@@ -59,6 +59,33 @@
     border: none;
 }
 
+.schedule-dates nav{
+    background: -webkit-gradient(linear, left top, right top, from(#c40505), to(#110000));
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    border-radius: 8px;
+    box-shadow: -8px -6px 5px rgba(0, 0, 0, 0.30);
+    margin-bottom: 1%;
+    align-items: center;
+}   
+.schedule-dates nav p{
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 22px;
+}   
+
+.schedule-dates nav .left:hover{
+    transform: translateX(-8px);   
+    transition: all 0.2s
+}
+
+.schedule-dates nav .rigth:hover{
+    transform: translateX(8px) ;   
+    transition: all 0.2s
+}
+
 .schedule-dates ul{
     margin: 0;
     display: grid;

@@ -17,6 +17,7 @@ function Schedule() {
     const [days, setDays] = useState([]);
     const history = useHistory();
     const [monthAdd, setMonthAdd] = useState(1)
+    const [yearAdd, setYearAdd] = useState(0);    
     useEffect(() => {        
         function validateLogin(){
             if(!sessionStorage.getItem('user')){
@@ -30,10 +31,23 @@ function Schedule() {
     function countDays(){
             
         //faz a contagem de dias de um mês
-                    
+        
         let dia = new Date();
-        let ano = dia.getFullYear();
+        let ano = dia.getFullYear() + yearAdd;
         let mes = dia.getMonth() + parseInt(monthAdd);
+        
+        //Valida se o mes selecionado é o limite do ano.
+        // Caso seja mes 1 ele volta para mes 12 e ano - 1. 
+        //Caso seja mes 12 ele volta para mes 1 e ano + 1;
+        if(mes > 12){
+            setMonthAdd(monthAdd - 12);          
+            setYearAdd(yearAdd + 1);
+        }        
+        else if(mes < 1){
+            setMonthAdd(monthAdd + 12);          
+            setYearAdd( yearAdd - 1)
+        }
+
         dia = new Date(ano, mes, 0).getDate()
         let dias = [];
         
@@ -81,7 +95,7 @@ function Schedule() {
                                     const day = new Date();
                                     sessionStorage.setItem("days", days + "/" +
                                      ((new Date().getMonth() + monthAdd).toString())+
-                                      "/" + day.getFullYear())
+                                      "/" + (day.getFullYear() + yearAdd).toString())
                                 }} to="/schedule-details"  className="button-list">
                                     <FaSearch size={16}/>
                                     <p>Horários</p>

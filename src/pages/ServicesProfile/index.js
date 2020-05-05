@@ -38,8 +38,6 @@ function Services(){
 
     async function handleService(){
 
-        alert(idService);
-
         if(idService === 0){
             const data = {
                 service,
